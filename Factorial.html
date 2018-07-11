@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="lib/styles/shCore.css" rel="stylesheet" />
+    <link href="lib/styles/shThemeDefault.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Numbers</a></li>
+                <li class="active"><a href="Factorial.html">Factorial</a></li>
+                <li><a href="FizzBuzz.html">FizzBuzz</a></li>
+                <li><a href="Palindrome.html">Palindrome</a></li>
+                <li><a href="WordFrequency.html">WordFreq</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <a href="" data-toggle="modal" data-target="#max">Factorial</a>
+    <div class="modal fade" id="max" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h1 class="modal-title" id="myModalLabel">Factorial</h1>
+                </div>
+                <div class="modal-body col-sm-12">
+                    <section id="factorial">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h2>Factorial</h2>
+                                <h4>Enter A Number</h4>
+                                <form id="NumberInput">
+                                    <div class="form-group">
+                                        <label>Number: </label>
+                                        <input class="form-control" type="number" id="number1" name="number1" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <button id="factorialButton" class="btn btn-info" type="button" onclick="myFactorial()">Calculate</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-6">
+                                <h2>Factorial</h2>
+                                <div class="form-group"> <span id="factorialOutput">Factorial Result: </span> </div>
+                                <label id="result"></label>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="modal-footer no-margin">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 margin-small">
+        <pre class="brush: js;">
+    function myFactorial() {
+    var num = parseInt(document.getElementById("number1").value);
+    var result = 1;
+   
+    
+    for (var i = num; i > 0; i--)
+    {
+        result = result * i;
+    
+    }
+    document.getElementById("result").innerHTML = result;
+    }
+        </pre>
+    </div>
+    <script src="lib/scripts/shCore.js"></script>
+    <script src="lib/scripts/shBrushJScript.js"></script>
+    <script>SyntaxHighlighter.all();</script>
+    <script src="JavaSheet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+</body>
+</html>

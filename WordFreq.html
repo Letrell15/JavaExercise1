@@ -1,0 +1,109 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Word Entry</title>
+</head>
+<body>
+    <!-- Goto http://w3c.github.io/html-reference/input.text.html#input.text for more information on all attributes that can be used with text input field -->
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form>
+                <div align="center" class="form-group">
+                    <h2>Word Frequency</h2>
+                    <input name="wordentry" type="text" id="wordentry" size="50" placeholder="Enter a clause or sentence here" />
+                    <button id="processWordsBtn" class="btn btn-info" type="submit">Process Words</button>
+                </div>
+            </form>
+            <hr>
+            <div class="form-group" align="center">
+                <label>A total number of unique words in the text (counting each word only once)</label>
+                <p>
+                    <label id="uniqueWordsList"></label>
+                </p>
+            </div>
+            <hr>
+            <div class="form-group" align="center">
+                <label>A list of all words in the text in alphabetical order.</label>
+                <p>
+                    <label id="sortedList"></label>
+                </p>
+            </div>
+            <hr>
+            <div class="form-group" align="center">
+                <label>The number of times each word occurs in the text.</label>
+                <p>
+                    <label id="wordFreqList"></label>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- jquery  -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!--bootstrap -->
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+<!--
+$(document).ready(function(){
+
+    $("#processWordsBtn").click(function (event) {
+        event.preventDefault();
+    });
+
+    $("#processWordsBtn").click(processWords);
+
+});
+
+function processWords() {
+
+
+    var inputWords = document.getElementById("wordentry").value;
+
+    // A list of all words in the text in alphabetical order
+
+    var inputWordsSentence = inputWords.split(' ');
+    inputWordsSentence.sort();
+
+    var sortedList = document.getElementById("sortedList");
+    sortedList.innerHTML = "";
+    sortedList.appendChild(document.createElement("p"));
+
+    for (var i = 0; i < inputWordsSentence.length; i++)
+    {
+        sortedList.append(inputWordsSentence[i].toLowerCase());
+        sortedList.appendChild(document.createElement("br"));
+    }
+
+
+    // The number of times each word occurs in the text.
+    var wordFreqList = document.getElementById("wordFreqList");
+    wordFreqList.innerHTML = "";
+    var words = inputWordsSentence;
+    var uniqueWords = {};
+    for (var i = 0; i < words.length; i++)
+    {
+        uniqueWords[words[i]] = (typeof uniqueWords[words[i]] != 'undefined') ? uniqueWords[words[i]]+= 1 : 1
+    }
+    var words_counter = 0;
+    for (key in uniqueWords)
+    {
+        words_counter++
+        wordFreqList.append(key + " : " + uniqueWords[key]);
+        wordFreqList.appendChild(document.createElement("br"));
+    }
+
+
+    // A total number of unique words in the text (counting each word only once)
+    uniqueWordsList.append("The number of unique words is " + words_counter);
+    uniqueWordsList.appendChild(document.createElement("br"));
+    
+
+
+}
+//-->
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="lib/styles/shCore.css" rel="stylesheet" />
+    <link href="lib/styles/shThemeDefault.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Numbers</a></li>
+                <li><a href="Factorial.html">Factorial</a></li>
+                <li><a href="FizzBuzz.html">FizzBuzz</a></li>
+                <li class="active"><a href="Palindrome.html">Palindrome</a></li>
+                <li><a href="WordFrequency.html">WordFreq</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <a href="" data-toggle="modal" data-target="#max">Palindrome</a>
+    <div class="modal fade" id="max" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h1 class="modal-title" id="myModalLabel">Palindrome</h1>
+                </div>
+                <div class="modal-body col-sm-12">
+                    <section>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3>Palindrome</h3>
+                                <h4>Type in a word:</h4><input type="text" id="wordentry" />
+                                <button onclick="myPalindrome()" class="btn btn-info">Find</button>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 id="wordanswer"></h3>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="modal-footer no-margin">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 margin-small">
+        <pre class="brush: js;">
+    function myPalindrome() {
+
+    var word = document.getElementById("wordentry").value;
+    $("#wordanswer").html("");
+    var wordbreak = word.split("");
+    var reverseword = wordbreak.reverse();
+    var joinword = reverseword.join("");
+    
+    if (word === joinword) {
+        ($("#wordanswer").html("It is a palindrome"));
+    }
+    else {
+        ($("#wordanswer").html("It is not a palindrome"));
+    }
+}
+        </pre>
+    </div>
+
+
+  
+    <script src="lib/scripts/shCore.js"></script>
+    <script src="lib/scripts/shBrushJScript.js"></script>
+    <script>SyntaxHighlighter.all();</script>
+    <script src="JavaSheet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+</body>
+</html>

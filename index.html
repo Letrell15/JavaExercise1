@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Javascript Exercise</title>
+	<meta charset="utf-8" />
+
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="lib/styles/shCore.css" rel="stylesheet" />
+    <link href="lib/styles/shThemeDefault.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html">Numbers</a></li>
+                <li><a href="Factorial.html">Factorial</a></li>
+                <li><a href="FizzBuzz.html">FizzBuzz</a></li>
+                <li><a href="Palindrome.html">Palindrome</a></li>
+                <li><a href="WordFrequency.html">WordFreq</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <a href="" data-toggle="modal" data-target="#max">Numbers</a>
+    <div class="modal fade" id="max" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h1 class="modal-title" id="myModalLabel">Numbers</h1>
+                </div>
+                <div class="modal-body col-sm-12">
+                    <h3>Number 1:</h3><input type="text" id="num1Text" />
+                    <h3>Number 2:</h3><input type="text" id="num2Text" />
+                    <h3>Number 3:</h3><input type="text" id="num3Text" />
+                    <h3>Number 4:</h3><input type="text" id="num4Text" />
+                    <h3>Number 5:</h3><input type="text" id="num5Text" />
+                    <button onclick="myButton()">Calculate</button>
+                    <p>Lowest:</p>
+                    <p id="demo1"></p>
+                    <p>Greatest:</p>
+                    <p id="demo2"></p>
+                    <p>Mean:</p>
+                    <p id="demo3"></p>
+                    <p>Sum:</p>
+                    <p id="demo4"></p>
+                    <p>Product:</p>
+                    <p id="demo5"></p>
+                </div>
+                <div class="modal-footer no-margin">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 margin-small">
+        <pre class="brush: js;">
+    function myButton() {
+
+    //Gathers input from text boxes
+    var num1 = parseInt(document.getElementById("num1Text").value);
+    var num2 = parseInt(document.getElementById("num2Text").value);
+    var num3 = parseInt(document.getElementById("num3Text").value);
+    var num4 = parseInt(document.getElementById("num4Text").value);
+    var num5 = parseInt(document.getElementById("num5Text").value);
+    //Calculate expressions
+    var numLowest = Math.min(num1, num2, num3, num4, num5);
+    var numGreatest = Math.max(num1, num2, num3, num4, num5);
+    var numMeanArr = [num1, num2, num3, num4, num5];
+    var numSum = (num1 + num2 + num3 + num4 + num5);
+    var numMean = numSum / numMeanArr.length;
+    var numProduct = num1 * num2 * num3 * num4 * num5;
+    //Output results
+    document.getElementById("demo1").innerHTML = numLowest;
+    document.getElementById("demo2").innerHTML = numGreatest;
+    document.getElementById("demo3").innerHTML = numMean;
+    document.getElementById("demo4").innerHTML = numSum;
+    document.getElementById("demo5").innerHTML = numProduct;
+        </pre>
+    </div>
+
+    <script src="lib/scripts/shCore.js"></script>
+    <script src="lib/scripts/shBrushJScript.js"></script>
+    <script type="text/javascript">SyntaxHighlighter.all();</script>
+
+    <script src="JavaSheet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+</body>
+</html>
